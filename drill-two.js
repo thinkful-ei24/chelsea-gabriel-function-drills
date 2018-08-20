@@ -28,34 +28,70 @@ function beyond(num) {
 // console.log('negative infinity');
 // beyond(Number.NEGATIVE_INFINITY);
 
+// Cracking the code - take in string, split into array of individual letters, loop over array, check first character, decoded array, join into a string, log it
 
-// Cracking the code - take in string, split into array of individual letters, loop over array, check first character, decoded array, join into a string, log it  
-
-const codeString = "craft block argon meter bells brown croon droop";
-const codedStringArray = codeString.split(" ");
+const codeString = 'craft block argon meter bells brown croon droop';
+const codedStringArray = codeString.split(' ');
 const decodedArray = [];
 
 for (let i = 0; i < codedStringArray.length; i++) {
-   decodedArray.push(decode(codedStringArray[i]));
+  decodedArray.push(decode(codedStringArray[i]));
 }
 
-function decode(word){
-let decodedChar = "";
+function decode(word) {
+  let decodedChar = '';
 
-    if (word.startsWith("a")){
-        decodedChar = word.substr(1,1);
-    } else if (word.startsWith("b")) {
-        decodedChar = word.substr(2,1);
-    } else if (word.startsWith("c")) {
-        decodedChar = word.substr(3,1);
-    } else if (word.startsWith("d")) {
-        decodedChar = word.substr(4,1);
+  if (word.startsWith('a')) {
+    decodedChar = word.substr(1, 1);
+  } else if (word.startsWith('b')) {
+    decodedChar = word.substr(2, 1);
+  } else if (word.startsWith('c')) {
+    decodedChar = word.substr(3, 1);
+  } else if (word.startsWith('d')) {
+    decodedChar = word.substr(4, 1);
+  } else {
+    decodedChar = ' ';
+  }
+
+  return decodedChar;
+}
+
+// console.log(decodedArray.join(''));
+
+// How many days in a month
+function daysInMonth(month, leapYear = false) {
+  let result;
+  switch (month.toLowerCase()) {
+  case 'january':
+  case 'march':
+  case 'may':
+  case 'july':
+  case 'august':
+  case 'october':
+  case 'december':
+    result = `${month} has 31 days`;
+    break;
+  case 'april':
+  case 'june':
+  case 'september':
+  case 'november':
+    result = `${month} has 30 days`;
+    break;
+  case 'february':
+    if (leapYear === true) {
+      result = `${month} has 29 days`;
+      break;
     } else {
-        decodedChar = " ";
+      result = `${month} has 28 days`;
+      break;
     }
-
-    return decodedChar;
-
+  default:
+    throw new Error('Must provide a valid month');
+  }
+  return result;
 }
 
-console.log(decodedArray.join(""));
+console.log(daysInMonth('january'));
+console.log(daysInMonth('april'));
+console.log(daysInMonth('february', true));
+console.log(daysInMonth('february'));
