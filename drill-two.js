@@ -91,7 +91,58 @@ function daysInMonth(month, leapYear = false) {
   return result;
 }
 
-console.log(daysInMonth('january'));
-console.log(daysInMonth('april'));
-console.log(daysInMonth('february', true));
-console.log(daysInMonth('february'));
+// console.log(daysInMonth('january'));
+// console.log(daysInMonth('april'));
+// console.log(daysInMonth('february', true));
+// console.log(daysInMonth('february'));
+
+
+
+// Rock Paper Scissors
+// 1 is Rock
+// 2 is Paper
+// 3 is Scissors
+
+
+function rps(num) {
+  const randomNo = Math.floor(Math.random() * 3) + 1;
+
+  if (num === 1) {
+    if (randomNo === 1){
+      return "It's a tie!";
+    } else if (randomNo === 2) {
+      return "Computer wins!";
+    } else {
+      return "You win!";
+    }
+  } else if (num === 2) {
+    if (randomNo === 1){
+      return "You win!";
+    } else if (randomNo === 2) {
+      return "It's a tie!";
+    } else {
+      return "Computer wins!";
+    }
+  } else if (num === 3) {
+    if (randomNo === 1){
+      return "Computer wins!";
+    } else if (randomNo === 2) {
+      return "You win!";
+    } else {
+      return "It's a tie!";
+    }
+  } else {
+    throw new Error("Argument not valid");
+  }
+}
+
+console.log(rps(1));
+console.log(rps(2));
+console.log(rps(3));
+
+
+
+
+
+
+
