@@ -1,6 +1,9 @@
 "use strict";
 
 function createGreeting(name, age) {
+  if (!name || !age) {
+    throw new Error("Invalid arguments provided");
+  }
   const yearOfBirth = getYearOfBirth(age);
   return `Hello, my name is ${name} and I am ${age}. I was born in ${yearOfBirth}`;
 }
